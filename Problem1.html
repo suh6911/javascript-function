@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function calCul(a, b, c, d, e, f){
+			var score = new Array();
+			score = [b,c,d,e,f];
+			var max=0;
+			var min=100;
+			var avg = (b+c+d+e+f)/5;
+			for(var i=0;i<score.length;i++){
+				if(max<score[i]){
+					max=score[i];
+				}
+				if(min>score[i]){
+					min=score[i];
+				}
+			}
+			return a+" 학생의 평균 점수는 "+avg+" , 최고 점수는 "+max+" , 최하 점수는 "+min+" 입니다.";
+		}
+		console.log(calCul("A",90,80,50,40,10));
+		console.log(calCul("B",90,30,100,50,50));
+		console.log(calCul("C",20,30,60,50,20));
+	</script>
+</head>
+<body>
+</body>
+</html>
