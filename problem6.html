@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+function print_scores_chart(){
+	var score = new Array(10);
+	for(i=0;i<10;i++){
+		score[i] = new Array();
+	}
+	for(i=0;i<10;i++){
+		for(j=0;j<=arguments.length;j++){
+			if(arguments[j]>=10-i){
+			score[i][j] ='*';
+			}
+			else{
+			score[i][j]='&nbsp;';
+			}
+		}
+	}
+	for(i=0;i<10;i++){
+		for(j=0;j<=arguments.length;j++){
+			document.write(score[i][j]);
+		}
+	document.write("<br/>");
+	}
+}
+print_scores_chart(1, 2, 3, 4, 5);
+print_scores_chart(10, 1, 10, 1, 5, 5);
+print_scores_chart(5, 2, 2, 9, 3, 5, 9);
+    </script>
+</head>
+<body>
+</body>
+</html>

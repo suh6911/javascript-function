@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+function height() {
+	var result ='';
+	var count = 0;
+	var circle = new Array();
+	for(i=0;i<10;i++){
+		circle[i] = new Array();
+	}
+	for(i=0;i<arguments.length;i++){
+	var n = new RegExp("\n","ig");
+		var cnt = (arguments[i].match(/\n/g) || []).length;
+		if(cnt>count)
+		count = cnt;
+	}
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++){
+		circle[i][j]=0;
+		}
+	}
+	for(i=0;i<arguments.length;i++){
+		var k=0;
+		var str = arguments[i].split('\n');
+		while(k<str.length){
+        			var str2= str[k].match(/O/g);
+        			for(j=0;j<str2.length;j++){
+        				circle[k][j]+=1;
+			}
+        			k=k+1;
+    		}
+	}
+/*for(i=0;i<10;i++){
+	for(j=0;j<4;j++){
+	document.write(circle[i][j]);
+	}
+document.write('\n');
+}*/
+    for(i=0;i<=count;i++){
+		for(j=0;j<4;j++){
+			if(i==0 && circle[i][j]==0){
+			circle[i][j]='';
+			}
+			else if(j!=3)
+			result+=circle[i][j]+' ';
+			else
+			result+=circle[i][j];
+		}
+if(i!=count)
+result+='\n';
+}
+document.write(result);
+return result;
+}
+exepect(height('O', 'OOOO\nOOOO'), '2 1 1 1\n1 1 1 1');document.write("<br/>");
+exepect(height('OOOO', 'OOOO\nOOOO'), '2 2 2 2\n1 1 1 1');document.write("<br/>");
+      exepect(height('OO\nOO', 'OOOO\nOOOO'), '2 2 1 1\n2 2 1 1');document.write("<br/>");
+      exepect(height('OO\nOO\nOO', 'OOOO\nOOOO'), '2 2 1 1\n2 2 1 1\n1 1 0 0');document.write("<br/>");
+      exepect(height('O', 'OOOO\nOOOO', 'OOOO'), '3 2 2 2\n1 1 1 1');document.write("<br/>");
+      exepect(height('OOOO', 'OOOO\nOOOO', 'OOOO'), '3 3 3 3\n1 1 1 1');document.write("<br/>");
+      exepect(height('OO\nOO', 'OOOO\nOOOO', 'OOOO'), '3 3 2 2\n2 2 1 1');document.write("<br/>");
+      exepect(height('OO\nOO\nOO', 'OOOO\nOOOO', 'O\nO\nO\nO'), '3 2 1 1\n3 2 1 1\n2 1 0 0\n1 0 0 0');document.write("<br/>");
+      exepect(height('O', 'O', 'O'), '3 ');document.write("<br/>");
+      function exepect(l, r) {
+        if (l === r)
+         console.log('pass');
+        else
+         console.log('fail');
+}
+    </script>
+</head>
+<body>
+</body>
+</html>
